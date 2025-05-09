@@ -5,70 +5,60 @@
   gz_type_name: "gz.msgs.Twist"
   direction: ROS_TO_GZ
 
+- ros_topic_name: "/explorer_ds1/pose"
+  gz_topic_name: "/model/explorer_ds1/pose"
+  ros_type_name: "geometry_msgs/msg/PoseStamped"
+  gz_type_name: "gz.msgs.Pose"
+  direction: GZ_TO_ROS
+
 - ros_topic_name: "/clock"
   gz_topic_name: "/clock"
   ros_type_name: "rosgraph_msgs/msg/Clock"
   gz_type_name: "gz.msgs.Clock"
   direction: GZ_TO_ROS
 
-
-- ros_topic_name: "/tf"
-  gz_topic_name: "/model/diff_drive/pose"
-  ros_type_name: "tf2_msgs/msg/TFMessage"
-  gz_type_name: "gz.msgs.Pose_V"
-  direction: GZ_TO_ROS
-  
-- ros_topic_name: "/tf_static"
-  gz_topic_name: "/model/diff_drive/pose_static"
-  ros_type_name: "tf2_msgs/msg/TFMessage"
-  gz_type_name: "gz.msgs.Pose_V"
-  direction: GZ_TO_ROS
-
-# Robot 1
-# Velocity command configuration.
-- topic_name: "/bebop1/cmd_vel"
-  ros_type_name: "geometry_msgs/msg/Twist"
-  gz_type_name: "gz.msgs.Twist"
-  lazy: true
-  direction: ROS_TO_GZ
-
-# Motor speed command configuration.
-- topic_name: "/bebop1/gazebo/command/motor_speed"
-  ros_type_name: "std_msgs/msg/Float32"
-  gz_type_name: "gz.msgs.Float"
-  lazy: true
-  direction: ROS_TO_GZ
-
 # Enable Quadrotor command configuration.
-- topic_name: "/bebop1/enable"
-  ros_type_name: "std_msgs/msg/Bool"
-  gz_type_name: "gz.msgs.Boolean"
-  lazy: true
-  direction: ROS_TO_GZ
+# - topic_name: "/explorer_ds1/enable"
+#   ros_type_name: "std_msgs/msg/Bool"
+#   gz_type_name: "gz.msgs.Boolean"
+#   direction: ROS_TO_GZ
 
-# Pose state configuration.
-- topic_name: "/bebop1/pose"
-  ros_type_name: "geometry_msgs/msg/Pose"
-  gz_type_name: "gz.msgs.Pose"
-  lazy: true
-  direction: GZ_TO_ROS
-
-# Initial Pose configuration.
-- topic_name: "/bebop1/set_pose"
-  ros_type_name: "geometry_msgs/msg/Pose"
-  gz_type_name: "gz.msgs.Pose"
-  lazy: true
-  direction: ROS_TO_GZ
-
-# rgbd_camera_bridge configuration.
-- topic_name: "/world/bebop/model/bebop1/link/body/sensor/rgb_camera_sensor/image"
+# rgb_camera_bridge configuration.
+- ros_topic_name: "/explorer_ds1/rgb_camera/image_raw"
+  gz_topic_name: "/explorer_ds1/rs_front/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "gz.msgs.Image"
-  lazy: true
   direction: GZ_TO_ROS
 
-- topic_name: "/world/bebop/model/bebop1/link/body/sensor/rgb_camera_sensor/camera_info"
+- ros_topic_name: "/explorer_ds1/camera_info"
+  gz_topic_name: "/explorer_ds1/rs_front/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "gz.msgs.CameraInfo"
-  lazy: true
+  direction: GZ_TO_ROS
+
+# depth_camera_bridge configuration.
+- ros_topic_name: "/explorer_ds1/depth_camera/image_raw"
+  gz_topic_name: "/explorer_ds1/rs_front/depth_image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+# 3d_lidar_bridge configuration.
+- ros_topic_name: "/explorer_ds1/lidar/scan"
+  gz_topic_name: "/explorer_ds1/front_laser"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/explorer_ds1/lidar/point_cloud"
+  gz_topic_name: "/explorer_ds1/front_laser/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
+
+# imu_bridge configuration.
+- ros_topic_name: "/explorer_ds1/imu"
+  gz_topic_name: "/explorer_ds1/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
   direction: GZ_TO_ROS

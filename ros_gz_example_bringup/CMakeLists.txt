@@ -20,9 +20,15 @@ install(
   DESTINATION share/${PROJECT_NAME}/config
 )
 
+install(PROGRAMS
+  scripts/pose_to_tf_publisher.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 endif()
 
 ament_package()
+

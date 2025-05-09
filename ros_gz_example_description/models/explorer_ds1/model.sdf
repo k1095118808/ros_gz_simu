@@ -295,9 +295,9 @@
 
       <sensor name="imu_sensor" type="imu">
         <always_on>1</always_on>
-        <update_rate>250</update_rate>
+        <update_rate>120</update_rate>
+        <topic>explorer_ds1/imu</topic>
         <imu>
-          <enable_orientation>0</enable_orientation>
           <angular_velocity>
             <x>
               <noise type="gaussian">
@@ -500,6 +500,7 @@
         <pose>0.325 0 0.07 0 0 0</pose>
         <always_on>1</always_on>
         <update_rate>20</update_rate>
+        <topic>explorer_ds1/rs_front</topic>
         <camera name="rs_front">
           <horizontal_fov>1.0472</horizontal_fov>
           <lens>
@@ -573,8 +574,8 @@
       </visual>
 
       <sensor name="front_laser" type="gpu_lidar">
-        <pose>0.18 0 0.284 5e-06 0 0</pose>
-        <always_on>1</always_on>
+        <pose>0.18 0 0.284 0 0 0</pose>
+        <topic>explorer_ds1/front_laser</topic>
         <update_rate>10</update_rate>
         <ray>
           <scan>
@@ -593,14 +594,16 @@
           </scan>
           <range>
             <min>0.05</min>
-            <max>100</max>
+            <max>30</max>
           </range>
           <noise>
             <type>gaussian</type>
             <mean>0</mean>
             <stddev>0.01</stddev>
           </noise>
-        </ray>    
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>    
       </sensor>
     </link>
 
@@ -891,6 +894,16 @@
               <direction>-1</direction>
           </rotor>
       </rotorConfiguration>
+    </plugin>
+
+    <plugin filename="gz-sim-pose-publisher-system"
+      name="gz::sim::systems::PosePublisher">
+      <publish_link_pose>false</publish_link_pose>
+      <publish_model_pose>true</publish_model_pose>
+      <publish_nested_model_pose>true</publish_nested_model_pose>
+      <use_pose_vector_msg>false</use_pose_vector_msg>
+      <publish_visual_pose>false</publish_visual_pose>
+      <update_frequency>30</update_frequency>
     </plugin>
   </model>
 </sdf>
