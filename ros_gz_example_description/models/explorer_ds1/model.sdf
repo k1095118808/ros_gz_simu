@@ -1,0 +1,896 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="explorer_ds1">
+    <link name="base_link">
+      <inertial>
+        <mass>1.55</mass>
+        <inertia>
+          <ixx>0.025</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.009</iyy>
+          <iyz>0</iyz>
+          <izz>0.033</izz>
+        </inertia>
+      </inertial>
+      <collision name="base_link_inertia_collision">
+        <pose>0 0 0.019 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/DS1_COLLISION.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="base_link_inertia_visual">
+        <geometry>
+          <mesh>
+            <uri>meshes/DS1.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <!-- Camera Visual -->
+
+<![CDATA[
+      <visual name="rs_up_visual">
+        <pose frame="">0.305 0 0.085 -1.57079632679 0 1.57079632679</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/realsense.dae</uri>
+            <submesh>
+              <name>RealSense</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://explorer_ds1/materials/textures/RealSense_Albedo.jpg</albedo_map>
+              <normal_map>model://explorer_ds1/materials/textures/RealSense_Normal.jpg</normal_map>
+              <metalness_map>model://explorer_ds1/materials/textures/RealSense_Metalness.jpg</metalness_map>
+              <roughness_map>model://explorer_ds1/materials/textures/RealSense_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <script>
+            <uri>model://explorer_ds1/materials/scripts/</uri>
+            <uri>model://explorer_ds1/materials/textures/</uri>
+            <name>UrbanTile/RealSense_Diffuse</name>
+          </script>
+        </material>
+      </visual>
+      <visual name="rs_down_visual1">
+        <pose frame="">0.305 0 0.055 1.57079632679 0 1.57079632679</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/realsense.dae</uri>
+            <submesh>
+              <name>RealSense</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://explorer_ds1/materials/textures/RealSense_Albedo.jpg</albedo_map>
+              <normal_map>model://explorer_ds1/materials/textures/RealSense_Normal.jpg</normal_map>
+              <metalness_map>model://explorer_ds1/materials/textures/RealSense_Metalness.jpg</metalness_map>
+              <roughness_map>model://explorer_ds1/materials/textures/RealSense_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <script>
+            <uri>model://explorer_ds1/materials/scripts/</uri>
+            <uri>model://explorer_ds1/materials/textures/</uri>
+            <name>UrbanTile/RealSense_Diffuse</name>
+          </script>
+        </material>
+      </visual>
+]]>
+
+      <visual name="rs_front_visual1">
+        <pose frame="">0.3 0 0.07 0 -0 1.57079632679</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/realsense.dae</uri>
+            <submesh>
+              <name>RealSense</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://explorer_ds1/materials/textures/RealSense_Albedo.jpg</albedo_map>
+              <normal_map>model://explorer_ds1/materials/textures/RealSense_Normal.jpg</normal_map>
+              <metalness_map>model://explorer_ds1/materials/textures/RealSense_Metalness.jpg</metalness_map>
+              <roughness_map>model://explorer_ds1/materials/textures/RealSense_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <script>
+            <uri>model://explorer_ds1/materials/scripts/</uri>
+            <uri>model://explorer_ds1/materials/textures/</uri>
+            <name>UrbanTile/RealSense_Diffuse</name>
+          </script>
+        </material>
+      </visual>
+
+<![CDATA[
+      <!-- Leds Visual -->
+      <visual name="front_left_led">
+        <pose frame="">0.39 -0.166 0.065 0 1.57079632679 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>meshes/led.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="front_right_led">
+        <pose frame="">0.39 0.166 0.065 0 1.57079632679 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>meshes/led.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="up_left_led">
+        <pose frame="">0.36 -0.166 0.07 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>meshes/led.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="up_right_led">
+        <pose frame="">0.36 0.166 0.07 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>meshes/led.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="down_left_led">
+        <pose frame="">0.36 -0.166 0.06 0 -3.14159265359 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>meshes/led.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="down_right_led">
+        <pose frame="">0.36 0.166 0.06 0 -3.14159265359 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>meshes/led.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <light name="front_left_flashlight_source" type="spot">
+        <pose frame="">0.43 -0.166 0.07 0 -1.57079632679 0</pose>
+        <attenuation>
+          <range>50</range>
+          <linear>0</linear>
+          <constant>0.1</constant>
+          <quadratic>0.0025</quadratic>
+        </attenuation>
+        <diffuse>0.8 0.8 0.5 1</diffuse>
+        <specular>0.8 0.8 0.5 1</specular>
+        <spot>
+          <inner_angle>1.5</inner_angle>
+          <outer_angle>1.8</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+        <cast_shadows>1</cast_shadows>
+      </light>        
+
+      <light name="front_right_flashlight_source" type="spot">
+        <pose frame="">0.43 0.166 0.07 0 -1.57079632679 0</pose>
+        <attenuation>
+          <range>50</range>
+          <linear>0</linear>
+          <constant>0.1</constant>
+          <quadratic>0.0025</quadratic>
+        </attenuation>
+        <diffuse>0.8 0.8 0.5 1</diffuse>
+        <specular>0.8 0.8 0.5 1</specular>
+        <spot>
+          <inner_angle>1.5</inner_angle>
+          <outer_angle>1.8</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+        <cast_shadows>1</cast_shadows>
+      </light>
+
+      <light name="down_left_flashlight_source" type="spot">
+        <pose frame="">0.4 -0.166 0.04 0 0 0</pose>
+        <attenuation>
+          <range>15</range>
+          <linear>0</linear>
+          <constant>0.1</constant>
+          <quadratic>0.0025</quadratic>
+        </attenuation>
+        <diffuse>0.8 0.8 0.5 1</diffuse>
+        <specular>0.8 0.8 0.5 1</specular>
+        <spot>
+          <inner_angle>1.8</inner_angle>
+          <outer_angle>2.0</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+        <cast_shadows>1</cast_shadows>
+      </light>        
+
+      <light name="down_right_flashlight_source" type="spot">
+        <pose frame="">0.4 0.166 0.04 0 0 0</pose>
+        <attenuation>
+          <range>15</range>
+          <linear>0</linear>
+          <constant>0.1</constant>
+          <quadratic>0.0025</quadratic>
+        </attenuation>
+        <diffuse>0.8 0.8 0.5 1</diffuse>
+        <specular>0.8 0.8 0.5 1</specular>
+        <spot>
+          <inner_angle>1.8</inner_angle>
+          <outer_angle>2.0</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+        <cast_shadows>1</cast_shadows>
+      </light>
+
+      <light name="up_left_flashlight_source" type="spot">
+        <pose frame="">0.4 -0.166 0.1 0 -3.14159265359 0</pose>
+        <attenuation>
+          <range>15</range>
+          <linear>0</linear>
+          <constant>0.1</constant>
+          <quadratic>0.0025</quadratic>
+        </attenuation>
+        <diffuse>0.8 0.8 0.5 1</diffuse>
+        <specular>0.8 0.8 0.5 1</specular>
+        <spot>
+          <inner_angle>1.8</inner_angle>
+          <outer_angle>2.0</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+        <cast_shadows>1</cast_shadows>
+      </light>        
+
+      <light name="up_right_flashlight_source" type="spot">
+        <pose frame="">0.4 0.166 0.1 0 -3.14159265359 0</pose>
+        <attenuation>
+          <range>15</range>
+          <linear>0</linear>
+          <constant>0.1</constant>
+          <quadratic>0.0025</quadratic>
+        </attenuation>
+        <diffuse>0.8 0.8 0.5 1</diffuse>
+        <specular>0.8 0.8 0.5 1</specular>
+        <spot>
+          <inner_angle>1.8</inner_angle>
+          <outer_angle>2.0</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+        <direction>0 0 -1</direction>
+        <cast_shadows>1</cast_shadows>
+      </light>
+]]>
+
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>250</update_rate>
+        <imu>
+          <enable_orientation>0</enable_orientation>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.009</stddev>
+                <bias_mean>0.00075</bias_mean>
+                <bias_stddev>0.005</bias_stddev>
+                <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
+                <precision>0.00025</precision>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.009</stddev>
+                <bias_mean>0.00075</bias_mean>
+                <bias_stddev>0.005</bias_stddev>
+                <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
+                <precision>0.00025</precision>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.009</stddev>
+                <bias_mean>0.00075</bias_mean>
+                <bias_stddev>0.005</bias_stddev>
+                <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
+                <precision>0.00025</precision>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.021</stddev>
+                <bias_mean>0.05</bias_mean>
+                <bias_stddev>0.0075</bias_stddev>
+                <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
+                <precision>0.005</precision>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.021</stddev>
+                <bias_mean>0.05</bias_mean>
+                <bias_stddev>0.0075</bias_stddev>
+                <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
+                <precision>0.005</precision>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.021</stddev>
+                <bias_mean>0.05</bias_mean>
+                <bias_stddev>0.0075</bias_stddev>
+                <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
+                <precision>0.005</precision>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+      </sensor>
+
+      <sensor name="magnetometer" type="magnetometer">
+        <always_on>1</always_on>
+        <update_rate>20</update_rate>
+        <magnetometer>
+          <x>
+            <noise type="gaussian">
+              <mean>0.000000080</mean>
+              <bias_mean>0.000000400</bias_mean>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.000000080</mean>
+              <bias_mean>0.000000400</bias_mean>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.000000080</mean>
+              <bias_mean>0.000000400</bias_mean>
+            </noise>
+          </z>
+        </magnetometer>
+      </sensor>
+
+<![CDATA[
+      <sensor name="rs_up" type="rgbd_camera">
+        <pose>0.305 0 0.11 0 -1.57079632679 0</pose>
+        <always_on>1</always_on>
+        <update_rate>20</update_rate>
+        <camera name="rs_up">
+          <horizontal_fov>1.0472</horizontal_fov>
+          <lens>
+            <intrinsics>
+              <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+              <fx>554.25469</fx>
+              <fy>554.25469</fy>
+              <!-- cx = ( width + 1 ) / 2 -->
+              <cx>320.5</cx>
+              <!-- cy = ( height + 1 ) / 2 -->
+              <cy>240.5</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+            <center>0.5 0.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>300</far>
+          </clip>
+          <depth_camera>
+            <clip>
+              <near>0.1</near>
+              <far>10</far>
+            </clip>
+          </depth_camera>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+      </sensor>
+
+      <sensor name="rs_down" type="rgbd_camera">
+        <pose>0.305 0 0.03 0 1.57079632679 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>20</update_rate>
+        <camera name="rs_down">
+          <horizontal_fov>1.0472</horizontal_fov>
+          <lens>
+            <intrinsics>
+              <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+              <fx>554.25469</fx>
+              <fy>554.25469</fy>
+              <!-- cx = ( width + 1 ) / 2 -->
+              <cx>320.5</cx>
+              <!-- cy = ( height + 1 ) / 2 -->
+              <cy>240.5</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+            <center>0.5 0.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>300</far>
+          </clip>
+          <depth_camera>
+            <clip>
+              <near>0.1</near>
+              <far>10</far>
+            </clip>
+          </depth_camera>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+      </sensor>
+]]>
+
+      <sensor name="rs_front" type="rgbd_camera">
+        <pose>0.325 0 0.07 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>20</update_rate>
+        <camera name="rs_front">
+          <horizontal_fov>1.0472</horizontal_fov>
+          <lens>
+            <intrinsics>
+              <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+              <fx>554.25469</fx>
+              <fy>554.25469</fy>
+              <!-- cx = ( width + 1 ) / 2 -->
+              <cx>320.5</cx>
+              <!-- cy = ( height + 1 ) / 2 -->
+              <cy>240.5</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+            <center>0.5 0.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>300</far>
+          </clip>
+          <depth_camera>
+            <clip>
+              <near>0.1</near>
+              <far>10</far>
+            </clip>
+          </depth_camera>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+      </sensor>
+
+
+
+      <visual name="laser_visual_base1">
+        <pose>0.18 0 0.19 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/VLP16_base_1.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="laser_visual_base2">
+        <pose>0.18 0 0.19 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/VLP16_base_2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="laser_visual_scan">
+        <pose>0.18 0 0.19 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/VLP16_scan.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <sensor name="front_laser" type="gpu_lidar">
+        <pose>0.18 0 0.284 5e-06 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1800</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>16</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.261799</min_angle>
+              <max_angle>0.261799</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.05</min>
+            <max>100</max>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>    
+      </sensor>
+    </link>
+
+    <link name="rotor_0">
+      <pose frame="">0.1644 -0.166 0.023 0 -0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.17041e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4.26041e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_0_visual">
+        <geometry>
+          <mesh>
+            <scale>0.12 0.12 0.12</scale>
+            <uri>meshes/propeller_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <cast_shadows>0</cast_shadows>
+      </visual>
+    </link>
+    <joint name="rotor_0_joint" type="revolute">
+      <child>rotor_0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <link name="rotor_1">
+      <pose frame="">-0.16443 0.1661 0.023 0 -0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.17041e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4.26041e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_1_visual">
+        <geometry>
+          <mesh>
+            <scale>0.12 0.12 0.12</scale>
+            <uri>meshes/propeller_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <cast_shadows>0</cast_shadows>
+      </visual>
+    </link>
+    <joint name="rotor_1_joint" type="revolute">
+      <child>rotor_1</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <link name="rotor_2">
+      <pose frame="">0.16443 0.1661 0.023 0 -0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.17041e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4.26041e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_2_visual">
+        <geometry>
+          <mesh>
+            <scale>0.12 0.12 0.12</scale>
+            <uri>meshes/propeller_cw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <cast_shadows>0</cast_shadows>
+      </visual>
+    </link>
+    <joint name="rotor_2_joint" type="revolute">
+      <child>rotor_2</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <link name="rotor_3">
+      <pose frame="">-0.16443 -0.1661 0.023 0 -0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.17041e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4.26041e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_3_visual">
+        <geometry>
+          <mesh>
+            <scale>0.12 0.12 0.12</scale>
+            <uri>meshes/propeller_cw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <cast_shadows>0</cast_shadows>
+      </visual>
+    </link>
+    <joint name="rotor_3_joint" type="revolute">
+      <child>rotor_3</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>explorer_ds1</robotNamespace>
+        <jointName>rotor_0_joint</jointName>
+        <linkName>rotor_0</linkName>
+        <turningDirection>ccw</turningDirection>
+
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+
+        <actuator_number>0</actuator_number>
+        <motorType>velocity</motorType>
+    </plugin>
+
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>explorer_ds1</robotNamespace>
+        <jointName>rotor_1_joint</jointName>
+        <linkName>rotor_1</linkName>
+        <turningDirection>ccw</turningDirection>
+
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+
+        <actuator_number>1</actuator_number>
+        <motorType>velocity</motorType>
+    </plugin>
+
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>explorer_ds1</robotNamespace>
+        <jointName>rotor_2_joint</jointName>
+        <linkName>rotor_2</linkName>
+        <turningDirection>cw</turningDirection>
+
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+
+        <actuator_number>2</actuator_number>
+        <motorType>velocity</motorType>
+    </plugin>
+
+    <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>explorer_ds1</robotNamespace>
+        <jointName>rotor_3_joint</jointName>
+        <linkName>rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+
+        <actuator_number>3</actuator_number>
+        <motorType>velocity</motorType>
+    </plugin>
+
+    <plugin
+        filename="gz-sim-multicopter-control-system"
+        name="gz::sim::systems::MulticopterVelocityControl">
+        <robotNamespace>explorer_ds1</robotNamespace> 
+        <commandSubTopic>cmd_vel</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <motorControlPubTopic>command/motor_speed</motorControlPubTopic> 
+        <comLinkName>base_link</comLinkName>
+        <velocityGain>2.7 2.7 2.7</velocityGain>
+        <attitudeGain>2 3 0.15</attitudeGain>
+        <angularRateGain>0.4 0.52 0.18</angularRateGain>
+        <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+
+        <rotorConfiguration>
+          <rotor>
+              <jointName>rotor_0_joint</jointName>
+              <forceConstant>8.54858e-06</forceConstant> 
+              <momentConstant>0.016</momentConstant>   
+              <direction>1</direction>
+          </rotor>
+          <rotor>
+              <jointName>rotor_1_joint</jointName>
+              <forceConstant>8.54858e-06</forceConstant> 
+              <momentConstant>0.016</momentConstant>   
+              <direction>1</direction>
+          </rotor>
+          <rotor>
+              <jointName>rotor_2_joint</jointName>
+              <forceConstant>8.54858e-06</forceConstant> 
+              <momentConstant>0.016</momentConstant>   
+              <direction>-1</direction>
+          </rotor>
+          <rotor>
+              <jointName>rotor_3_joint</jointName>
+              <forceConstant>8.54858e-06</forceConstant> 
+              <momentConstant>0.016</momentConstant>   
+              <direction>-1</direction>
+          </rotor>
+      </rotorConfiguration>
+    </plugin>
+  </model>
+</sdf>
