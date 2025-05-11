@@ -97,9 +97,20 @@
       <include merge="true">
         <uri>package://ros_gz_example_description/models/explorer_ds1</uri>
       </include>
-
-
     </model>
+
+
+    <include>
+      <name>actor_walking</name>
+      <pose>5 0 0 0 0 0</pose>
+      <uri>package://ros_gz_example_description/models/actor_walking</uri>
+    </include>
+
+    <include>
+      <name>actor_running</name>
+      <pose>5 5 0 0 0 0</pose>
+      <uri>package://ros_gz_example_description/models/actor_running</uri>
+    </include>
 
   </world>
 </sdf>
