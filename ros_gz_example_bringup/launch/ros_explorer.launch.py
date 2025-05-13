@@ -125,6 +125,6 @@ def generate_launch_description():
         bridge_node,
         rviz_node,
         robot_state_publisher_node,
-        pose_to_tf_node,
+        # pose_to_tf_node,
         static_transform_lidar_fix_node
     ])
